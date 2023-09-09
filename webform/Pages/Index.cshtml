@@ -13,9 +13,7 @@
     <label class="form-label" style="font-weight: 600;" asp-for="FormData!.Email">Email</label>
     <input type="email" class="form-control mb-3" id="email" placeholder="name@example.com" asp-for="FormData!.Email">
     <label class="form-label" style="font-weight: 600;" asp-for="FormData!.SelectedCountryId">Tours</label>
-    <select class="form-select w-50 mb-3" asp-for="FormData!.SelectedCountryId" asp-items="@Model.FormData!.Countries">
-        
-    </select>
+    <select class="form-select w-50 mb-3" asp-for="FormData!.SelectedCountryId" asp-items="@Model.FormData!.Countries"></select>
     <div class="input-group mb-3">
         <div class="me-3">
             <input type="radio" class="custom-control-input" id="Book" name="FormData.Book" value="true">

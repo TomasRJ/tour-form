@@ -9,5 +9,4 @@ public class Form
     public int SelectedCountryId { get; set; }
     public List<SelectListItem>? Countries { get; set; }
     public bool Book { get; set; }
-    public bool Cancel { get; set; }
 }

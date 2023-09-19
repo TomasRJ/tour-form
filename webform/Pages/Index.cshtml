@@ -8,10 +8,16 @@
 
 <form method="post" class="form-check ps-0 w-75 position-absolute top-50 start-50 translate-middle" style="max-width: 400px;">
     <p class="fs-3" style="font-weight: 600;">Tour Selection</p>
-    <label class="form-label" style="font-weight: 600;" asp-for="FormData!.Name">Name</label>
-    <input type="text" class="form-control mb-3" id="name" asp-for="FormData!.Name">
-    <label class="form-label" style="font-weight: 600;" asp-for="FormData!.Email">Email</label>
-    <input type="email" class="form-control mb-3" id="email" placeholder="name@example.com" asp-for="FormData!.Email">
+    <div>
+        <label class="form-label" style="font-weight: 600;" asp-for="FormData!.Name">Name</label>
+        <input type="text" class="form-control" id="name" asp-for="FormData!.Name">
+        <span asp-validation-for="FormData!.Name" class="text-danger mb-3"></span>
+    </div>
+    <div>
+        <label class="form-label" style="font-weight: 600;" asp-for="FormData!.Email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" asp-for="FormData!.Email">
+        <span asp-validation-for="FormData!.Email" class="text-danger mb-3"></span>
+    </div>
     <label class="form-label" style="font-weight: 600;" asp-for="FormData!.SelectedCountryId">Tours</label>
     <select class="form-select w-50 mb-3" asp-for="FormData!.SelectedCountryId" asp-items="@Model.FormData!.Countries"></select>
     <div class="input-group mb-3">
@@ -20,9 +26,10 @@
             <label class="custom-control-label" asp-for="FormData!.Book">Book</label>
         </div>
         <div>
-            <input type="radio" class="custom-control-input" id="Book" name="FormData.Book" value="false">
+            <input type="radio" class="custom-control-input" id="Cancel" name="FormData.Book" value="false">
             <label class="custom-control-label" asp-for="FormData!.Book">Cancel</label>
         </div>
+        <span asp-validation-for="FormData!.Book" class="text-danger mb-3 w-100"></span>
     </div>
-    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+    <input type="submit" class="btn btn-primary mb-3" value="Submit"/>
 </form>

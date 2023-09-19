@@ -30,12 +30,13 @@ public class IndexModel : PageModel
     {
         if (!ModelState.IsValid || FormData == null || FormData.SelectedCountryId == 0)
         {
+            FormData!.Countries = GetCountriesList();
             return Page();
         }
 
         var countries = GetCountriesList();
 
-        var book = FormData.Book ? "Booked" : "Cancelled";
+        var book = (bool)FormData.Book! ? "Booked" : "Cancelled";
         var country = countries.FirstOrDefault(x => x.Value == FormData.SelectedCountryId.ToString())!.Text;
 
         // _logger.LogInformation($"FormData values: {FormData.Name}, {FormData.Email}, {FormData.SelectedCountryId}, {FormData.Book}, Output: {book}, {country}");

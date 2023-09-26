@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webform", "webform\webform.csproj", "{D9240552-AD33-4976-A342-4E1348034499}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "back-office", "back-office\back-office.csproj", "{930EA66F-F008-440A-BF90-F08482E9140F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "email-service", "email-service\email-service.csproj", "{77A182FF-E3BF-4B63-836D-2C08B49BCEF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9240552-AD33-4976-A342-4E1348034499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9240552-AD33-4976-A342-4E1348034499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9240552-AD33-4976-A342-4E1348034499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9240552-AD33-4976-A342-4E1348034499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{930EA66F-F008-440A-BF90-F08482E9140F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{930EA66F-F008-440A-BF90-F08482E9140F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{930EA66F-F008-440A-BF90-F08482E9140F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{930EA66F-F008-440A-BF90-F08482E9140F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77A182FF-E3BF-4B63-836D-2C08B49BCEF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A182FF-E3BF-4B63-836D-2C08B49BCEF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A182FF-E3BF-4B63-836D-2C08B49BCEF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A182FF-E3BF-4B63-836D-2C08B49BCEF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

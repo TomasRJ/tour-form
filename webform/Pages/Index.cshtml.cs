@@ -48,7 +48,7 @@ public class IndexModel : PageModel
 
     private static void SendRabbitMQMessage(string? book, string country, string name, string email)
     {
-        var factory = new ConnectionFactory { HostName = "localhost" };
+        var factory = new ConnectionFactory { HostName = "localhost", VirtualHost = "ucl" };
         using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
         channel.ExchangeDeclare(exchange: "Tour", type: ExchangeType.Topic);
@@ -56,7 +56,14 @@ public class IndexModel : PageModel
         var routingKey = book != null ? "Tour." + book : "anonymous.info";
         var message = book != null ? $"A tour to {country} from the user \"{name} ({email})\" has been {book}" : "No tour booked";
         var body = Encoding.UTF8.GetBytes(message);
-        channel.BasicPublish(exchange: "Tour", routingKey: routingKey, basicProperties: null, body: body);
+        
+        // Start transaction https://blog.rabbitmq.com/posts/2011/02/introducing-publisher-confirms#guaranteed-delivery-with-tx
+        channel.TxSelect();
+        for (int i = 0; i < 500; i++)
+        {
+            channel.BasicPublish(exchange: "Tour", routingKey: routingKey, basicProperties: null, body: body);
+        }
+        channel.TxCommit();
     }
     private List<SelectListItem> GetCountriesList() 
     {

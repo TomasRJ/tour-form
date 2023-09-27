@@ -2,7 +2,7 @@
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
-var factory = new ConnectionFactory { HostName = "localhost" };
+var factory = new ConnectionFactory { HostName = "localhost", VirtualHost = "ucl" };
 
 using var connection = factory.CreateConnection();
 using var channel = connection.CreateModel();
@@ -22,6 +22,8 @@ while(textInput != "")
         var body = ea.Body.ToArray();
         var message = Encoding.UTF8.GetString(body);
         Console.WriteLine($"{message}");
+        channel.BasicAck(ea.DeliveryTag, false);   
+        Console.WriteLine("Ack"); 
     };
     channel.BasicConsume(queue: queueName, autoAck: true, consumer: consumer);
     textInput = Console.ReadLine();
